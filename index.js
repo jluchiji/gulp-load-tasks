@@ -4,7 +4,8 @@
     _ = require('underscore');
     gulp = require('gulp');
     requireDir = require('require-dir');
-    _.defaults(config, {
+    console.log(arguments);
+    config = _.defaults(config, {
       taskDir: 'gulp'
     });
     plugins = {
@@ -14,7 +15,7 @@
         return (_base = this.cache)[name] != null ? _base[name] : _base[name] = require(name);
       }
     };
-    tasks = load(config.taskDir);
+    tasks = requireDir(config.taskDir);
     for (name in tasks) {
       register = tasks[name];
       register(gulp, plugins.get, config);

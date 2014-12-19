@@ -9,8 +9,10 @@ module.exports = (config) ->
   gulp        = require 'gulp'
   requireDir  = require 'require-dir'
 
+  console.log arguments
+
   # Configuration defaults
-  _.defaults config,
+  config = _.defaults config,
     taskDir: 'gulp'
 
   # Plugin Cache / Loader
@@ -19,7 +21,7 @@ module.exports = (config) ->
     get: (name) -> @cache[name] ?= require name
 
   # Get all stuff
-  tasks = load config.taskDir
+  tasks = requireDir config.taskDir
 
   # Register tasks with gulp
   register(gulp, plugins.get, config) for name, register of tasks
