@@ -1,7 +1,8 @@
 (function() {
-  module.exports = function(gulp, config) {
-    var name, plugins, register, requireDir, tasks, _, _results;
+  module.exports = function(config) {
+    var gulp, name, plugins, register, requireDir, tasks, _;
     _ = require('underscore');
+    gulp = require('gulp');
     requireDir = require('require-dir');
     _.defaults(config, {
       taskDir: 'gulp'
@@ -14,12 +15,11 @@
       }
     };
     tasks = load(config.taskDir);
-    _results = [];
     for (name in tasks) {
       register = tasks[name];
-      _results.push(register(gulp, plugins.get, config));
+      register(gulp, plugins.get, config);
     }
-    return _results;
+    return gulp;
   };
 
 }).call(this);

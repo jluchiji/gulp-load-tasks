@@ -1,6 +1,6 @@
 {
   "name": "gulp-load-tasks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scaling large gulpfiles in a manageable way.",
   "main": "index.js",
   "scripts": {
