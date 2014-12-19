@@ -1,5 +1,5 @@
 {
-  "name": "@wyvernzora/gulp-load-tasks",
+  "name": "gulp-load-tasks",
   "version": "1.0.0",
   "description": "Scaling large gulpfiles in a manageable way.",
   "main": "index.js",

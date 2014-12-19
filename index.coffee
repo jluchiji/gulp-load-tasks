@@ -3,14 +3,16 @@
 # gulp-load-tasks - manage large gulp build scripts                           #
 #                                                                             #
 # --------------------------------------------------------------------------- #
-module.exports = (gulp, config) ->
-  _ = require 'underscore'
-  requireDir = require 'require-dir'
+module.exports = (config) ->
+
+  _           = require 'underscore'
+  gulp        = require 'gulp'
+  requireDir  = require 'require-dir'
 
   # Configuration defaults
   _.defaults config,
     taskDir: 'gulp'
-  
+
   # Plugin Cache / Loader
   plugins =
     cache: { }
@@ -21,3 +23,6 @@ module.exports = (gulp, config) ->
 
   # Register tasks with gulp
   register(gulp, plugins.get, config) for name, register of tasks
+
+  # Return gulp object
+  return gulp
